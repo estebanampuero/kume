@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo LockedInWork (Para Pantallazo)</title>
+    
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" class="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0d0d1a; /* Fondo oscuro de tu marca */
+            font-family: 'Space Grotesk', sans-serif;
+            overflow: hidden; /* Evita barras de scroll */
+        }
+
+        /* Contenedor principal que alinea el ícono y el texto */
+        .logo-container {
+            display: flex; 
+            align-items: center;
+            gap: 0.25em; 
+            
+            /* clamp(TAMAÑO_MÍNIMO, TAMAÑO_PREFERIDO_FLUIDO, TAMAÑO_MÁXIMO) */
+            font-size: clamp(48px, 12vw, 200px); 
+            
+            font-weight: 700;
+            color: #E5E7EB;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        /* Estilos para el Ícono SVG */
+        .logo-icon {
+            width: 1.1em;
+            height: 1.1em;
+            color: #67E8F9; /* Color cian de tu marca */
+        }
+
+        /* Estilo para la parte resaltada "Work" */
+        .highlight {
+            color: #67E8F9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- El logo combinado renderizado -->
+    <a href="#" class="logo-container">
+        
+        <!-- ===== VERSIÓN FINAL Y 100% FIEL DEL LOGO ===== -->
+        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grupo para todos los elementos que son solo contorno -->
+            <g stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+                
+                <!-- Antena (CORREGIDA: Comienza en el centro x=50) -->
+                <path d="M50 40V25H70"/>
+
+                <!-- Agarre Izquierdo -->
+                <path d="M15 60H25"/>
+                <!-- Agarre Derecho -->
+                <path d="M75 60H85"/>
+                <!-- Cuerpo Principal (x=25 + width=50 => centro en x=50) -->
+                <rect x="25" y="40" width="50" height="40" rx="12"/>
+            </g>
+            <!-- Ojos (Estos son elementos con relleno) -->
+            <rect x="38" y="52" width="6" height="16" rx="3" fill="currentColor"/>
+            <rect x="56" y="52" width="6" height="16" rx="3" fill="currentColor"/>
+        </svg>
+
+        <!-- Texto del Logo -->
+        <span>
+            LockedIn<span class="highlight">Work</span>
+        </span>
+    </a>
+
+</body>
+</html>

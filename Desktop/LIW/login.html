@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - LockedInWork</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
+
+    <style>
+        /* Estilos base consistentes con la página principal */
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0d0d1a;
+            color: #E5E7EB;
+        }
+
+        /* Efecto Glassmorphism */
+        .glass-effect {
+            background: rgba(13, 13, 26, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Estilo para los inputs */
+        .form-input {
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #67E8F9; /* cyan-300 */
+            box-shadow: 0 0 0 3px rgba(103, 232, 249, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="relative min-h-screen w-full flex items-center justify-center p-4">
+        
+        <div id="particles-js" class="absolute top-0 left-0 w-full h-full z-0"></div>
+
+        <div class="relative z-10 w-full max-w-md">
+            <div class="glass-effect rounded-2xl p-8 shadow-2xl">
+                
+                <div class="text-center mb-8">
+                    <a href="index.html" class="text-3xl font-bold text-white">LockedIn<span class="text-cyan-300">Work</span></a>
+                    <p class="text-gray-400 mt-2">Bienvenido de vuelta</p>
+                </div>
+
+                <!-- === SECCIÓN CORREGIDA DEL BOTÓN DE GOOGLE === -->
+                <div class="space-y-4 text-center mb-4">
+                    <div id="g_id_onload"
+                         data-client_id="TU_ID_DE_CLIENTE_AQUI.apps.googleusercontent.com" <!-- ¡¡¡RECUERDA REEMPLAZAR ESTO!!! -->
+                         <data-callback="handleCredentialResponse"
+                         data-auto_prompt="false">
+                    </div>
+                    <div class="g_id_signin"
+                         data-type="standard"
+                         data-shape="rectangular"
+                         data-theme="outline"
+                         data-text="continue_with"
+                         data-size="large"
+                         data-logo_alignment="left">
+                    </div>
+                </div>
+
+                <div class="flex items-center my-8">
+                    <hr class="w-full border-gray-600">
+                    <span class="px-4 text-gray-400 text-sm">O</span>
+                    <hr class="w-full border-gray-600">
+                </div>
+
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required class="form-input w-full rounded-lg p-3 text-sm" placeholder="tu@correo.com">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-300 mb-2">Contraseña</label>
+                        <input type="password" id="password" name="password" required class="form-input w-full rounded-lg p-3 text-sm" placeholder="••••••••">
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-500 bg-gray-700 text-cyan-500 focus:ring-cyan-500">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-300">Recuérdame</label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-cyan-400 hover:text-cyan-300">¿Olvidaste tu contraseña?</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-black bg-cyan-400 hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition-colors duration-300">
+                            Iniciar Sesión
+                        </button>
+                    </div>
+                </form>
+
+                <p class="mt-8 text-center text-sm text-gray-400">
+                    ¿No tienes una cuenta?
+                    <a href="#" class="font-medium text-cyan-400 hover:text-cyan-300">Regístrate aquí</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            particlesJS('particles-js', {
+                "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#4f46e5" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#a78bfa", "opacity": 0.15, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" } },
+                "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": false } }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } } } },
+                "retina_detect": true
+            });
+        });
+    </script>
+
+    <!-- === SCRIPTS DE GOOGLE AÑADIDOS AL FINAL === -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function handleCredentialResponse(response) {
+            console.log("Token JWT recibido: ", response.credential);
+
+            // Para propósitos de demostración, decodificamos el token en el frontend.
+            // En una aplicación real, envía este token a tu backend para una verificación segura.
+            const base64Url = response.credential.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            const userData = JSON.parse(jsonPayload);
+            console.log("Datos del usuario (decodificados):", userData);
+            
+            alert("¡Inicio de sesión con Google exitoso! Bienvenido, " + userData.name);
+            // Por ejemplo, podrías redirigir al usuario a su panel:
+            // window.location.href = "/dashboard.html"; 
+        }
+    </script>
+    
+</body>
+</html>

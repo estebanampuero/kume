@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Uso - LockedInWork</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
+
+    <!-- Estilos consistentes con index.html -->
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0d0d1a;
+            color: #E5E7EB;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .glass-effect {
+            background: rgba(13, 13, 26, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header-scrolled {
+            background-color: rgba(13, 13, 26, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="relative w-full">
+        <!-- Particle Background -->
+        <div id="particles-js"></div>
+
+        <!-- Header idéntico al de index.html (con enlaces ajustados) -->
+        <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-white">LockedIn<span class="text-cyan-300">Work</span></a>
+                <nav id="main-nav" class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#differentiator" class="text-gray-300 hover:text-white transition-colors">Diferenciador</a>
+                    <a href="index.html#services" class="text-gray-300 hover:text-white transition-colors">Servicios</a>
+                    <a href="use-cases.html" class="text-white font-semibold border-b-2 border-cyan-400">Casos de Uso</a> <!-- Enlace activo -->
+                    <a href="about.html" class="text-gray-300 hover:text-white transition-colors">Sobre Nosotros</a>
+                    <a href="login.html" class="text-gray-300 hover:text-white transition-colors">Iniciar Sesión</a>
+                    <a href="index.html#contact" class="bg-cyan-400 text-black font-semibold px-5 py-2 rounded-lg hover:bg-cyan-300 transition-colors">Solicita una Demo</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                </button>
+            </div>
+             <!-- Menú móvil (oculto por defecto) -->
+             <div id="mobile-menu" class="hidden md:hidden bg-black/30 backdrop-blur-lg">
+                <a href="index.html#differentiator" class="block text-white text-center py-3 hover:bg-cyan-400/20">Diferenciador</a>
+                <a href="index.html#services" class="block text-white text-center py-3 hover:bg-cyan-400/20">Servicios</a>
+                <a href="use-cases.html" class="block text-white text-center py-3 bg-cyan-400/20 font-semibold">Casos de Uso</a>
+                <a href="about.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Sobre Nosotros</a>
+                <a href="login.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Iniciar Sesión</a>
+                <a href="index.html#contact" class="block text-black text-center py-3 bg-cyan-400 font-semibold">Solicita una Demo</a>
+            </div>
+        </header>
+
+        <main class="relative z-10 pt-32 pb-24">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white">Inteligencia Aplicada a tu Negocio</h1>
+                    <p class="mt-4 text-lg text-gray-300">
+                        Descubre cómo nuestros agentes de IA se integran en tus equipos para automatizar tareas, optimizar procesos y generar un impacto medible desde el primer día.
+                    </p>
+                </div>
+
+                <!-- Grid de Casos de Uso -->
+                <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+
+                    <!-- Caso de Uso 1: Ventas -->
+                    <div class="glass-effect rounded-2xl p-8 reveal border border-transparent hover:border-cyan-400/50 transition-colors duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-cyan-900/50 rounded-lg flex items-center justify-center text-2xl">📈</div>
+                            <h2 class="text-2xl font-bold text-white">Equipos de Ventas</h2>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-red-400">El Problema:</h3>
+                            <p class="mt-2 text-gray-400 text-sm">Los representantes dedican más del 30% de su tiempo a tareas manuales como actualizar el CRM, registrar llamadas y calificar leads, en lugar de vender.</p>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-cyan-300">La Solución LockedInWork:</h3>
+                            <p class="mt-2 text-gray-300 text-sm">Un agente de IA que escucha las llamadas, actualiza automáticamente las oportunidades en el CRM, identifica el sentimiento del cliente y agenda los siguientes pasos, liberando al equipo para que se enfoque en cerrar tratos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Caso de Uso 2: Operaciones -->
+                    <div class="glass-effect rounded-2xl p-8 reveal border border-transparent hover:border-cyan-400/50 transition-colors duration-300" style="transition-delay: 150ms;">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-cyan-900/50 rounded-lg flex items-center justify-center text-2xl">⚙️</div>
+                            <h2 class="text-2xl font-bold text-white">Operaciones y Logística</h2>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-red-400">El Problema:</h3>
+                            <p class="mt-2 text-gray-400 text-sm">La gestión de inventario entre múltiples sistemas es propensa a errores, provocando quiebres de stock o excesos costosos. La reportería es manual y reactiva.</p>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-cyan-300">La Solución LockedInWork:</h3>
+                            <p class="mt-2 text-gray-300 text-sm">Una IA que consolida datos de inventario en tiempo real, predice la demanda basándose en tendencias históricas y de mercado, y genera órdenes de compra automáticas para optimizar los niveles de stock.</p>
+                        </div>
+                    </div>
+
+                    <!-- Caso de Uso 3: RRHH -->
+                    <div class="glass-effect rounded-2xl p-8 reveal border border-transparent hover:border-cyan-400/50 transition-colors duration-300" style="transition-delay: 300ms;">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-cyan-900/50 rounded-lg flex items-center justify-center text-2xl">👥</div>
+                            <h2 class="text-2xl font-bold text-white">Recursos Humanos</h2>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-red-400">El Problema:</h3>
+                            <p class="mt-2 text-gray-400 text-sm">El proceso de selección inicial es un cuello de botella. Revisar cientos de currículums para cada vacante consume un tiempo valioso del equipo de reclutamiento.</p>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-cyan-300">La Solución LockedInWork:</h3>
+                            <p class="mt-2 text-gray-300 text-sm">Un sistema que analiza y clasifica CVs automáticamente, contrasta la experiencia de los candidatos con los requisitos del puesto y presenta una lista corta de los mejores perfiles, reduciendo el tiempo de contratación en un 50%.</p>
+                        </div>
+                    </div>
+
+                    <!-- Caso de Uso 4: Marketing -->
+                    <div class="glass-effect rounded-2xl p-8 reveal border border-transparent hover:border-cyan-400/50 transition-colors duration-300" style="transition-delay: 450ms;">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-cyan-900/50 rounded-lg flex items-center justify-center text-2xl">🎯</div>
+                            <h2 class="text-2xl font-bold text-white">Marketing y Análisis</h2>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-red-400">El Problema:</h3>
+                            <p class="mt-2 text-gray-400 text-sm">Recopilar datos de rendimiento de campañas desde Google Ads, Analytics y redes sociales es un proceso manual y lento que dificulta la toma de decisiones ágiles.</p>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-cyan-300">La Solución LockedInWork:</h3>
+                            <p class="mt-2 text-gray-300 text-sm">Un agente que genera informes de rendimiento consolidados cada mañana, identifica las campañas con mejor y peor desempeño, y sugiere optimizaciones de presupuesto basadas en el ROI en tiempo real.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección CTA -->
+                <div class="mt-24 text-center max-w-3xl mx-auto reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">¿Tienes un desafío diferente?</h2>
+                    <p class="mt-4 text-lg text-gray-300">
+                        Nuestra plataforma es flexible. Hablemos sobre tus necesidades específicas y diseñemos una solución de IA a la medida de tu empresa.
+                    </p>
+                    <div class="mt-8">
+                        <a href="index.html#contact" class="bg-cyan-400 text-black font-bold px-10 py-4 rounded-xl hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 inline-block">
+                            Solicitar una Demo Personalizada
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer idéntico al de index.html -->
+        <footer class="border-t border-white/10 py-12 relative z-10">
+            <div class="container mx-auto px-6 text-center text-gray-500">
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="hover:text-cyan-300 transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-cyan-300 transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-cyan-300 transition-colors">GitHub</a>
+                </div>
+                <p>&copy; 2025 LockedInWork. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Initialize Particles.js ---
+        particlesJS('particles-js', {
+            "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#4f46e5" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#a78bfa", "opacity": 0.15, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": false } }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } } } },
+            "retina_detect": true
+        });
+
+        // --- Intersection Observer for animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header-scrolled', window.scrollY > 50);
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    });
+    </script>
+</body>
+</html>

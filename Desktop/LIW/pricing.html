@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios - LockedInWork</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
+
+    <!-- Estilos consistentes con index.html -->
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0d0d1a;
+            color: #E5E7EB;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .glass-effect {
+            background: rgba(13, 13, 26, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header-scrolled {
+            background-color: rgba(13, 13, 26, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Estilos para el toggle de precios */
+        #pricing-toggle:checked + .toggle-bg {
+            background-color: #67E8F9; /* cyan-300 */
+        }
+        #pricing-toggle:checked + .toggle-bg .toggle-dot {
+            transform: translateX(100%);
+        }
+        /* Estilos para el acordeón de FAQ */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="relative w-full">
+        <!-- Particle Background -->
+        <div id="particles-js"></div>
+
+        <!-- Header -->
+        <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-white">LockedIn<span class="text-cyan-300">Work</span></a>
+                <nav id="main-nav" class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Inicio</a>
+                    <a href="use-cases.html" class="text-gray-300 hover:text-white transition-colors">Casos de Uso</a>
+                    <a href="integrations.html" class="text-gray-300 hover:text-white transition-colors">Integraciones</a>
+                    <a href="pricing.html" class="text-white font-semibold border-b-2 border-cyan-400">Precios</a> <!-- Enlace activo -->
+                    <a href="contact.html" class="text-gray-300 hover:text-white transition-colors">Contacto</a>
+                    <a href="demo.html" class="ml-4 bg-cyan-400 text-black font-semibold px-5 py-2 rounded-lg hover:bg-cyan-300 transition-colors">Solicita una Demo</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                </button>
+            </div>
+             <!-- Menú móvil (oculto por defecto) -->
+             <div id="mobile-menu" class="hidden md:hidden bg-black/30 backdrop-blur-lg">
+                <a href="index.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Inicio</a>
+                <a href="use-cases.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Casos de Uso</a>
+                <a href="integrations.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Integraciones</a>
+                <a href="pricing.html" class="block text-white text-center py-3 bg-cyan-400/20 font-semibold">Precios</a>
+                <a href="contact.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Contacto</a>
+                <a href="demo.html" class="block text-black text-center py-3 bg-cyan-400 font-semibold">Solicita una Demo</a>
+            </div>
+        </header>
+
+        <main class="relative z-10 pt-32 pb-24">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white">Planes para Equipos de Todos los Tamaños</h1>
+                    <p class="mt-4 text-lg text-gray-300">
+                        Elige el plan que se adapte a tus necesidades. Precios transparentes, sin sorpresas.
+                    </p>
+                </div>
+
+                <!-- Toggle de Precios Mensual/Anual -->
+                <div class="mt-12 flex justify-center items-center space-x-4 reveal">
+                    <span class="font-medium monthly-label text-white">Mensual</span>
+                    <label for="pricing-toggle" class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="pricing-toggle" class="sr-only peer">
+                        <div class="toggle-bg w-14 h-8 bg-gray-600 rounded-full peer-checked:bg-cyan-400 transition-colors duration-300">
+                            <div class="toggle-dot absolute top-1 left-1 bg-white w-6 h-6 rounded-full transition-transform duration-300"></div>
+                        </div>
+                    </label>
+                    <span class="font-medium annual-label text-gray-400">Anual <span class="text-xs text-cyan-300">(Ahorra 20%)</span></span>
+                </div>
+
+
+                <!-- Grid de Planes de Precios -->
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+
+                    <!-- Plan PRO -->
+                    <div class="glass-effect rounded-2xl p-8 h-full flex flex-col reveal" style="transition-delay: 100ms;">
+                        <h3 class="text-2xl font-bold text-white">Pro</h3>
+                        <p class="mt-2 text-gray-400">Para equipos pequeños y startups.</p>
+                        <div class="my-8">
+                            <span class="text-5xl font-bold text-white price" data-monthly="49" data-annual="39">$49</span>
+                            <span class="text-gray-400">/ mes por usuario</span>
+                        </div>
+                        <ul class="space-y-4 text-gray-300 flex-grow">
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Hasta 5 Agentes de IA</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Integración con 2 herramientas</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Análisis de hasta 10,000 interacciones/mes</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Soporte por email</span></li>
+                        </ul>
+                        <a href="#" class="mt-8 block text-center w-full bg-white/10 text-white font-bold py-3 rounded-lg hover:bg-white/20 transition-colors">Empezar Ahora</a>
+                    </div>
+
+                    <!-- Plan BUSINESS (Destacado) -->
+                    <div class="glass-effect rounded-2xl p-8 h-full flex flex-col border-2 border-cyan-400 relative reveal" style="transition-delay: 200ms;">
+                        <span class="absolute top-0 -translate-y-1/2 bg-cyan-400 text-black text-xs font-bold px-3 py-1 rounded-full uppercase">Más Popular</span>
+                        <h3 class="text-2xl font-bold text-cyan-300">Business</h3>
+                        <p class="mt-2 text-gray-400">Para equipos en crecimiento y PYMES.</p>
+                        <div class="my-8">
+                            <span class="text-5xl font-bold text-white price" data-monthly="99" data-annual="79">$99</span>
+                            <span class="text-gray-400">/ mes por usuario</span>
+                        </div>
+                        <ul class="space-y-4 text-gray-300 flex-grow">
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Agentes de IA ilimitados</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Integración con hasta 10 herramientas</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Análisis de hasta 50,000 interacciones/mes</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Workflows Inteligentes y RAG</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Soporte prioritario por chat</span></li>
+                        </ul>
+                        <a href="#" class="mt-8 block text-center w-full bg-cyan-400 text-black font-bold py-3 rounded-lg hover:bg-cyan-300 transition-colors">Empezar Ahora</a>
+                    </div>
+
+                    <!-- Plan ENTERPRISE -->
+                    <div class="glass-effect rounded-2xl p-8 h-full flex flex-col reveal" style="transition-delay: 300ms;">
+                        <h3 class="text-2xl font-bold text-white">Enterprise</h3>
+                        <p class="mt-2 text-gray-400">Para grandes organizaciones.</p>
+                        <div class="my-8">
+                            <span class="text-5xl font-bold text-white">Personalizado</span>
+                        </div>
+                        <ul class="space-y-4 text-gray-300 flex-grow">
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Todo lo del plan Business, y más</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Integraciones personalizadas y APIs</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Seguridad y compliance avanzados (SSO, HIPAA)</span></li>
+                            <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">✓</span><span>Soporte dedicado y gestor de cuenta</span></li>
+                        </ul>
+                        <a href="contact.html" class="mt-8 block text-center w-full bg-white/10 text-white font-bold py-3 rounded-lg hover:bg-white/20 transition-colors">Contactar a Ventas</a>
+                    </div>
+                </div>
+
+                 <!-- Sección de Preguntas Frecuentes (FAQ) -->
+                 <div class="mt-24 max-w-4xl mx-auto reveal">
+                    <h2 class="text-3xl font-bold text-white text-center mb-12">Preguntas Frecuentes</h2>
+                    <div id="faq-container" class="space-y-4">
+                        <!-- FAQ Items ... -->
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer idéntico al de index.html -->
+        <footer class="border-t border-white/10 py-12 relative z-10">
+            <div class="container mx-auto px-6 text-center text-gray-500">
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="hover:text-cyan-300 transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-cyan-300 transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-cyan-300 transition-colors">GitHub</a>
+                </div>
+                <p>&copy; 2025 LockedInWork. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Initialize Particles.js (CONFIGURACIÓN IDÉNTICA A INDEX.HTML) ---
+        particlesJS('particles-js', {
+            "particles": { "number": { "value": 440, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#4f46e5" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#a78bfa", "opacity": 0.15, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": false } }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } } } },
+            "retina_detect": true
+        });
+
+        // --- Intersection Observer for animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header-scrolled', window.scrollY > 50);
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Pricing Toggle Logic ---
+        const pricingToggle = document.getElementById('pricing-toggle');
+        const prices = document.querySelectorAll('.price');
+        const monthlyLabel = document.querySelector('.monthly-label');
+        const annualLabel = document.querySelector('.annual-label');
+
+        pricingToggle.addEventListener('change', () => {
+            const isAnnual = pricingToggle.checked;
+            prices.forEach(price => {
+                price.textContent = '$' + price.dataset[isAnnual ? 'annual' : 'monthly'];
+            });
+            monthlyLabel.classList.toggle('text-white', !isAnnual);
+            monthlyLabel.classList.toggle('text-gray-400', isAnnual);
+            annualLabel.classList.toggle('text-white', isAnnual);
+            annualLabel.classList.toggle('text-gray-400', !isAnnual);
+        });
+
+        // --- FAQ Accordion Logic ---
+        // (El código del acordeón se puede añadir aquí si es necesario, como en la versión anterior)
+        const faqContainer = document.getElementById('faq-container');
+        faqContainer.innerHTML = `
+            <div class="faq-item glass-effect rounded-lg p-6">
+                <button class="faq-toggle w-full flex justify-between items-center text-left">
+                    <span class="font-semibold text-white">¿Ofrecen una prueba gratuita?</span>
+                    <svg class="faq-arrow w-5 h-5 text-gray-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-content text-gray-300 pt-4">Sí, ofrecemos una prueba gratuita de 14 días en nuestro plan Business. No se requiere tarjeta de crédito para empezar.</div>
+            </div>
+            <div class="faq-item glass-effect rounded-lg p-6">
+                <button class="faq-toggle w-full flex justify-between items-center text-left">
+                    <span class="font-semibold text-white">¿Puedo cambiar de plan en cualquier momento?</span>
+                    <svg class="faq-arrow w-5 h-5 text-gray-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-content text-gray-300 pt-4">¡Por supuesto! Puedes mejorar, degradar o cancelar tu plan en cualquier momento desde el panel de tu cuenta. Los cambios se aplicarán en el siguiente ciclo de facturación.</div>
+            </div>
+            <div class="faq-item glass-effect rounded-lg p-6">
+                <button class="faq-toggle w-full flex justify-between items-center text-left">
+                    <span class="font-semibold text-white">¿Qué se considera una "interacción"?</span>
+                    <svg class="faq-arrow w-5 h-5 text-gray-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-content text-gray-300 pt-4">Una interacción es cualquier evento que la IA procesa, como un correo electrónico analizado, una llamada transcrita o una consulta a una base de datos. Estaremos encantados de ayudarte a estimar tu volumen durante una demo.</div>
+            </div>
+        `;
+        faqContainer.addEventListener('click', (e) => {
+            const toggle = e.target.closest('.faq-toggle');
+            if (!toggle) return;
+            const item = toggle.closest('.faq-item');
+            const content = item.querySelector('.faq-content');
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                if (activeItem !== item) {
+                    activeItem.classList.remove('active');
+                    activeItem.querySelector('.faq-content').style.maxHeight = null;
+                }
+            });
+            item.classList.toggle('active');
+            content.style.maxHeight = !isActive ? content.scrollHeight + 'px' : null;
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integraciones - LockedInWork</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
+
+    <!-- Estilos consistentes con index.html -->
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0d0d1a;
+            color: #E5E7EB;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .glass-effect {
+            background: rgba(13, 13, 26, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header-scrolled {
+            background-color: rgba(13, 13, 26, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .integration-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .integration-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="relative w-full">
+        <!-- Particle Background -->
+        <div id="particles-js"></div>
+
+        <!-- Header -->
+        <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-white">LockedIn<span class="text-cyan-300">Work</span></a>
+                <nav id="main-nav" class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Inicio</a>
+                    <a href="use-cases.html" class="text-gray-300 hover:text-white transition-colors">Casos de Uso</a>
+                    <a href="integrations.html" class="text-white font-semibold border-b-2 border-cyan-400">Integraciones</a> <!-- Enlace activo -->
+                    <a href="about.html" class="text-gray-300 hover:text-white transition-colors">Sobre Nosotros</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-white transition-colors">Contacto</a>
+                    <a href="demo.html" class="ml-4 bg-cyan-400 text-black font-semibold px-5 py-2 rounded-lg hover:bg-cyan-300 transition-colors">Solicita una Demo</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                </button>
+            </div>
+             <!-- Menú móvil (oculto por defecto) -->
+             <div id="mobile-menu" class="hidden md:hidden bg-black/30 backdrop-blur-lg">
+                <a href="index.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Inicio</a>
+                <a href="use-cases.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Casos de Uso</a>
+                <a href="integrations.html" class="block text-white text-center py-3 bg-cyan-400/20 font-semibold">Integraciones</a>
+                <a href="about.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Sobre Nosotros</a>
+                <a href="contact.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Contacto</a>
+                <a href="demo.html" class="block text-black text-center py-3 bg-cyan-400 font-semibold">Solicita una Demo</a>
+            </div>
+        </header>
+
+        <main class="relative z-10 pt-32 pb-24">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white">Conecta tu Ecosistema de Herramientas</h1>
+                    <p class="mt-4 text-lg text-gray-300">
+                        LockedInWork no reemplaza tus herramientas, las potencia. Nuestra IA se integra de forma nativa con las plataformas que tu equipo ya ama y utiliza a diario.
+                    </p>
+                </div>
+                
+                <!-- Categorías de Integraciones -->
+                <div class="mt-20 max-w-6xl mx-auto space-y-16">
+                    
+                    <!-- Categoría: CRM & Ventas -->
+                    <div class="reveal">
+                        <h2 class="text-2xl font-bold text-cyan-300 mb-6">CRM & Ventas</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                            <!-- Logos -->
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" class="h-12 w-auto"></div>
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/hubspot.com" alt="HubSpot" class="h-12 w-auto"></div>
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/zoho.com" alt="Zoho CRM" class="h-12 w-auto"></div>
+                        </div>
+                    </div>
+
+                    <!-- Categoría: Comunicación -->
+                    <div class="reveal">
+                        <h2 class="text-2xl font-bold text-cyan-300 mb-6">Comunicación</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                            <!-- Logos -->
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/slack.com" alt="Slack" class="h-12 w-auto"></div>
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft Teams" class="h-12 w-auto"></div>
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/gmail.com" alt="Gmail" class="h-12 w-auto"></div>
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/telegram.org" alt="Telegram" class="h-12 w-auto"></div>
+                        </div>
+                    </div>
+
+                    <!-- Categoría: Datos y Analítica -->
+                    <div class="reveal">
+                        <h2 class="text-2xl font-bold text-cyan-300 mb-6">Datos y Analítica</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                            <!-- Logos -->
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel" class="h-12 w-auto"></div>
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" alt="Google Sheets" class="h-12 w-auto"></div>
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/mysql.com" alt="MySQL" class="h-12 w-auto"></div>
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/postgresql.org" alt="PostgreSQL" class="h-12 w-auto"></div>
+                            <div class="integration-card glass-effect rounded-xl p-6 flex items-center justify-center aspect-square"><img src="https://logo.clearbit.com/cloud.google.com/bigquery" alt="BigQuery" class="h-12 w-auto"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA para Integraciones Personalizadas -->
+                    <div class="mt-24 text-center max-w-3xl mx-auto reveal">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">¿No ves tu herramienta?</h2>
+                        <p class="mt-4 text-lg text-gray-300">
+                            Nuestra plataforma está diseñada para ser flexible. Si utilizas una herramienta que no está en la lista, contáctanos. Nos especializamos en crear integraciones a medida a través de APIs y Webhooks.
+                        </p>
+                        <div class="mt-8">
+                            <a href="contact.html" class="bg-white/10 text-white font-bold px-10 py-4 rounded-xl hover:bg-white/20 transition-all duration-300 inline-block">
+                                Hablar sobre una Integración
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer idéntico al de index.html -->
+        <footer class="border-t border-white/10 py-12 relative z-10">
+            <div class="container mx-auto px-6 text-center text-gray-500">
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="hover:text-cyan-300 transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-cyan-300 transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-cyan-300 transition-colors">GitHub</a>
+                </div>
+                <p>&copy; 2025 LockedInWork. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Initialize Particles.js ---
+        particlesJS('particles-js', {
+            "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#4f46e5" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#a78bfa", "opacity": 0.15, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": false } }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } } } },
+            "retina_detect": true
+        });
+
+        // --- Intersection Observer for animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header-scrolled', window.scrollY > 50);
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    });
+    </script>
+</body>
+</html>

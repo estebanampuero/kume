@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - LockedInWork</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
+
+    <!-- Estilos consistentes con index.html -->
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0d0d1a;
+            color: #E5E7EB;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .glass-effect {
+            background: rgba(13, 13, 26, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header-scrolled {
+            background-color: rgba(13, 13, 26, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="relative w-full">
+        <!-- Particle Background -->
+        <div id="particles-js"></div>
+
+        <!-- Header -->
+        <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-white">LockedIn<span class="text-cyan-300">Work</span></a>
+                <nav id="main-nav" class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Inicio</a>
+                    <a href="services.html" class="text-white font-semibold border-b-2 border-cyan-400">Servicios</a> <!-- Enlace activo -->
+                    <a href="use-cases.html" class="text-gray-300 hover:text-white transition-colors">Casos de Uso</a>
+                    <a href="integrations.html" class="text-gray-300 hover:text-white transition-colors">Integraciones</a>
+                    <a href="pricing.html" class="text-gray-300 hover:text-white transition-colors">Precios</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-white transition-colors">Contacto</a>
+                    <a href="demo.html" class="ml-4 bg-cyan-400 text-black font-semibold px-5 py-2 rounded-lg hover:bg-cyan-300 transition-colors">Solicita una Demo</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                </button>
+            </div>
+             <!-- Menú móvil (oculto por defecto) -->
+             <div id="mobile-menu" class="hidden md:hidden bg-black/30 backdrop-blur-lg">
+                <a href="index.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Inicio</a>
+                <a href="services.html" class="block text-white text-center py-3 bg-cyan-400/20 font-semibold">Servicios</a>
+                <a href="use-cases.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Casos de Uso</a>
+                <a href="integrations.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Integraciones</a>
+                <a href="pricing.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Precios</a>
+                <a href="contact.html" class="block text-white text-center py-3 hover:bg-cyan-400/20">Contacto</a>
+                <a href="demo.html" class="block text-black text-center py-3 bg-cyan-400 font-semibold">Solicita una Demo</a>
+            </div>
+        </header>
+
+        <main class="relative z-10 pt-32 pb-24">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white">Nuestras Soluciones de IA</h1>
+                    <p class="mt-4 text-lg text-gray-300">
+                        Vamos más allá de la conversación. Creamos agentes autónomos que se integran en tus flujos de trabajo para ejecutar tareas, analizar datos y acelerar tu negocio.
+                    </p>
+                </div>
+
+                <!-- Contenedor donde se cargarán los servicios -->
+                <div id="services-container" class="mt-24 space-y-24">
+                    <!-- Los servicios se generarán aquí con JavaScript -->
+                </div>
+
+                <!-- CTA Final -->
+                <div class="mt-24 text-center max-w-3xl mx-auto reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Listo para ver cómo funciona en tu empresa?</h2>
+                    <p class="mt-4 text-lg text-gray-300">
+                        La mejor forma de entender el poder de nuestros agentes es viéndolos en acción con tus propios datos y desafíos.
+                    </p>
+                    <div class="mt-8">
+                        <a href="demo.html" class="bg-cyan-400 text-black font-bold px-10 py-4 rounded-xl hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 inline-block">
+                            Agenda una Demo Personalizada
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer idéntico al de index.html -->
+        <footer class="border-t border-white/10 py-12 relative z-10">
+            <div class="container mx-auto px-6 text-center text-gray-500">
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="hover:text-cyan-300 transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-cyan-300 transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-cyan-300 transition-colors">GitHub</a>
+                </div>
+                <p>&copy; 2025 LockedInWork. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Initialize Particles.js (CONFIGURACIÓN IDÉNTICA A INDEX.HTML) ---
+        particlesJS('particles-js', {
+            "particles": { "number": { "value": 440, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#4f46e5" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#a78bfa", "opacity": 0.15, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": false } }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } } } },
+            "retina_detect": true
+        });
+
+        // --- Service Cards Data (Idéntico a index.html) ---
+        const servicesData = [
+            { id: "conversational", title: "Agentes que Actúan", description: "Acceso y ejecución de tareas en sus CRMs, bases de datos y Google Sheets. Toman decisiones o las escalan de forma inteligente.", detailed: "Creamos agentes que dialogan con naturalidad, acceden a bases de conocimiento en tiempo real y resuelven problemas complejos, mejorando la experiencia del cliente y la eficiencia interna.", useCase: "Ej: Un asistente de soporte técnico que guía a un usuario consultando manuales y el historial del CRM.", visualization: `<div class="flex items-center justify-center h-full w-full bg-cyan-900/20 text-7xl animate-pulse">🤖</div>` },
+            { id: "integration", title: "Análisis de Interacciones", description: "No pierda la riqueza de la comunicación. Le entregamos informes con los insights de las conversaciones para que entienda y mejore.", detailed: "Nuestra IA se conecta de forma nativa a tus fuentes de datos, sin importar el formato o la ubicación, para crear una visión unificada y coherente de tu negocio.", useCase: "Ej: Consolidación automática de ventas desde Shopify, SAP y Excel en un único dashboard.", visualization: `<img src="https://cdn.shopify.com/s/files/1/0663/9940/4205/files/data-trends-svgrepo-com.svg?v=1753854705" alt="Gráfico" class="h-24 w-24 object-contain p-1" />` },
+            { id: "reporting", title: "Reportería Inteligente", description: "Sus KPIs más importantes son analizados y reportados sin intervención humana. Céntrese en decidir, no en reportar.", detailed: "Olvida los reportes manuales. Generamos análisis visuales e interactivos que se actualizan solos, destacando KPIs, tendencias y anomalías de forma proactiva.", useCase: "Ej: Un reporte de ventas diario que se envía a gerencia con insights clave sobre el rendimiento.", visualization: `<img src="https://cdn.shopify.com/s/files/1/0663/9940/4205/files/statistics-svgrepo-com.svg?v=1753854082" alt="Gráfico" class="h-24 w-24 object-contain p-1" />` },
+            { id: "predictive", title: "Integración Total", description: "Diseñamos soluciones a medida que conectan la IA con todos tus sistemas existentes, creando un ecosistema unificado y eficiente.", detailed: "Conectamos cada parte de tu negocio para que la IA trabaje por ti. Ahorra tiempo, reduce errores y acelera tus resultados desde el día uno.", useCase: "Ej: Cuando un cliente hace una compra, el sistema actualiza el stock, envía un correo de confirmación y registra la venta en el CRM automáticamente.", visualization: `<img src="https://cdn.shopify.com/s/files/1/0663/9940/4205/files/integration-testing-svgrepo-com.svg?v=1753854082" alt="Gráfico" class="h-24 w-24 object-contain p-1" />` },
+            { id: "smart workflows", title: "Workflows Inteligentes", description: "Diagramas de flujo interactivos que muestran decisiones ramificadas.", detailed: "Creamos flujos de decisión automatizados que simulan procesos de negocio, activan acciones basadas en condiciones lógicas y se visualizan como mapas dinámicos tipo árbol.", useCase: "Ej: Un flujo de aprobación automática de contratos que escala decisiones según el monto o tipo de cliente.", visualization: `<img src="https://cdn.shopify.com/s/files/1/0663/9940/4205/files/workflow-svgrepo-com.svg?v=1753854081" alt="Gráfico" class="h-24 w-24 object-contain p-1" />` },
+            { id: "rag agent", title: "RAG Empresarial Avanzado", description: "Documentos vivos conectados a insights en tiempo real.", detailed: "Implementamos Retrieval-Augmented Generation (RAG) para conectar tus documentos empresariales a modelos de lenguaje que responden con precisión basada en evidencia. Cada respuesta está respaldada por la fuente original.", useCase: "Ej: Un asistente interno que responde preguntas sobre políticas de la empresa citando el documento exacto.", visualization: `<img src="https://cdn.shopify.com/s/files/1/0663/9940/4205/files/ai-platform-svgrepo-com.svg?v=1753854081" alt="Gráfico" class="h-24 w-24 object-contain p-1" />` }
+        ];
+
+        // --- Generar HTML para los Servicios ---
+        const container = document.getElementById('services-container');
+        if (container && servicesData) {
+            servicesData.forEach((service, index) => {
+                const serviceEl = document.createElement('section');
+                serviceEl.id = service.id;
+                serviceEl.className = 'reveal grid grid-cols-1 lg:grid-cols-2 gap-12 items-center';
+                
+                const textContent = `
+                    <div>
+                        <h2 class="text-3xl font-bold text-cyan-300">${service.title}</h2>
+                        <p class="mt-4 text-gray-300 leading-relaxed">${service.detailed}</p>
+                        <p class="mt-6 text-xs font-mono bg-gray-800/50 p-3 rounded-lg text-cyan-200 border border-white/10">${service.useCase}</p>
+                    </div>
+                `;
+
+                const visualContent = `
+                    <div class="flex items-center justify-center h-64">
+                        <div class="glass-effect rounded-2xl p-8 w-64 h-64 flex items-center justify-center">
+                            ${service.visualization}
+                        </div>
+                    </div>
+                `;
+
+                // Lógica para alternar el orden
+                if (index % 2 !== 0) {
+                   serviceEl.innerHTML = `<div class="order-2 lg:order-1">${textContent}</div><div class="order-1 lg:order-2">${visualContent}</div>`;
+                } else {
+                    serviceEl.innerHTML = `<div>${visualContent}</div><div>${textContent}</div>`;
+                }
+                container.appendChild(serviceEl);
+            });
+        }
+        
+        // --- Intersection Observer for animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        // Volver a aplicar el observer después de generar el contenido dinámico
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header-scrolled', window.scrollY > 50);
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    });
+    </script>
+</body>
+</html>
